@@ -196,13 +196,14 @@ main{
     position: absolute;
     width: 150%;
     height: 100%;
-    bottom: 20px;
+    bottom: 2vw;
     right: -40%;
 
     /* Background */
     background-image: url("/assets/main-text-select.png");
     background-repeat: no-repeat;
     background-position: bottom center;
+    background-size: contain;
     z-index: -1;
 
 }
@@ -313,6 +314,9 @@ main{
     .buttons .find-more{
         width: 150px;
         height: 40px;
+    }
+    .wrapper .main-text span::after{
+        bottom: 3vw;
     }
     :root{
         --main-text-size: 11vw;
