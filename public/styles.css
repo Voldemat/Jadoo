@@ -6,29 +6,41 @@
 }
 :root{
     --black: #212832;
+    --margin-between-sections: 7%;
+    
+    --heading-first-text-size: 18pt;
+    --heading-text-size: 3em;
+
     --landing-main-text-size: 70pt;
     --landing-addiional-text-size: 1em;
     --landing-first-text-size: 1.3em;
 
-    --category-first-text-size: 18pt;
-    --category-heading-text-size: 3em;
+
     --category-card-heading-text-size: 1.2em;
     --category-card-main-text-size: 1em;
 
+    --top-card-main-text-size: 15pt;
+    --top-card-additional-text-size: 13pt;
 }
 body{
     position: relative;
     min-height: 100vh;
     min-width: 100vw;
-    overflow-x: hidden;
+    
     padding: 8vh 10vw 0 10vw;
+    overflow-x: hidden;
+}
+section{
+    font-family: 'Poppins', sans-serif;
+
+    margin-top: var(--margin-between-sections);
 }
 body.menu-active{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
 }
-.decore{
+body .decore{
     position: absolute;
     right: 0;
     top: 0;
@@ -160,41 +172,46 @@ nav .icon{
 
 
 
-
+/* Main Section */
 main{
     width: 100%;
     height: 100%;
     flex: 1 1 auto;
-
-
-
 }
+
+
+/* Landing Section */
 .landing{
     position: relative;
     display: flex;
-    padding-top: 3%;
+
     font-family: 'Poppins', sans-serif;
 }
 .landing .wrapper{
     display: flex;
-    justify-content: space-between;
-    height: 75%;
     flex-direction: column;
+    justify-content: space-between;
+    
+    height: 75%;
 }
 .landing .wrapper .first-text{
+    max-width: 80%;
+
     font-size: var(--landing-first-text-size);
     font-weight: bold;
-    
-    color: #DF6951;
     text-transform: uppercase;
+    color: #DF6951;
 }
+/* Main text and decor underline(.wrapper .main-text span) */
 .landing .wrapper .main-text, .wrapper .main-text span{
     position: relative;
+
     font-size: var(--landing-main-text-size);
     font-family: 'Volkhov', serif;
-    color: #181E4B;
     white-space: nowrap;
+    color: #181E4B;
 }
+/* Decor line */
 .landing .wrapper .main-text span::after{
     /* Position */
     content: '';
@@ -215,31 +232,36 @@ main{
 .landing .wrapper .additional-text{
     width: 75%;
     margin-top: 5%;
+
     font-weight: normal;
     font-size: var(--landing-addiional-text-size);
     color: #5E6282;
 }
 .landing .wrapper .buttons{
     display: flex;
-    width: 100%;
     justify-content: flex-start;
     flex-wrap: wrap;
+
+    width: 100%;
     margin-top: 5%;
 }
 .landing .wrapper .buttons *{
     margin-bottom: 5%;
 }
 .buttons .find-more{
-    width: 170px;
-    height: 60px;
     display: flex;
     justify-content: center;
-    text-decoration: none;
     align-items: center;
-    border-radius: 10px;
-    color: #fff;
-    background-color: #F1A501;
+    
+    width: 170px;
+    height: 60px;
     margin-right: 5vw;
+    
+    text-decoration: none;
+    color: #fff;
+    
+    border-radius: 10px;
+    background-color: #F1A501;
 }
 .buttons .play-demo{
     display: flex;
@@ -250,22 +272,37 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+
     width: 50px;
     height: 50px;
     
-    overflow: hidden;
     border-radius: 50%;
 
 }
 .buttons .play-demo button{
-    border: none;
-    background: none;
     margin-left: 21px;
+    
+    font-family: "Poppins", sans-serif;
     font-weight: normal;
     font-size: 1em;
+    
     color: #686D77;
-    font-family: "Poppins", sans-serif;
+    background: none;
+    border: none;
 }
+/* Landing Photo */
+.landing .photo{
+    position: relative;
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    margin-top: 5%;
+}
+
+
 
 /* Decor Planes */
 .landing .plane{
@@ -278,16 +315,12 @@ main{
 #plane2{
     top: 0;
     right: 9vw;
+
     z-index: -1;
 }
-.landing .photo{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    position: relative;
-    margin-top: 5%;
-}
 
+
+/* Landing breakpoint: PC -> Tablet */
 @media screen and (max-width: 1550px){
     .landing{
         flex-direction: column;
@@ -302,7 +335,13 @@ main{
         --landing-first-text-size: 1.2em;
     }
 }
+
+/* Breakpoint: Tablet -> Phone */
 @media screen and (max-width: 750px){
+    /* Start Landing */
+    .landing{
+        padding-right: 0;
+    }
     .landing .photo{
         display: none;
     }
@@ -320,85 +359,205 @@ main{
     .wrapper .main-text span::after{
         bottom: 3vw;
     }
+
+    .landing .wrapper .additional-text{
+        width: 100%;
+    }
     :root{
         --landing-main-text-size: 11vw;
         --landing-addiional-text-size: 0.9em;
         --landing-first-text-size: 1em;
     }
+    /* End Landing */
+
+    /* Start Category */
+        #shadow{
+            box-shadow: none !important;
+        }
+        .category .decor-item{
+            display: none;
+        }
+    /* End category */
 }
 
-section.category{
-    width: 100%;
+
+/* Category Section */
+.category{
+    position: relative;
     display: flex;
     flex-direction: column;
 
-    font-family: 'Poppins', sans-serif;
-
 }
-section.category .heading{
+section .heading{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-section.category .heading > span{
+section .heading > span{
     color: #5E6282;
+    text-transform: capitalize;
+
     font-weight: 600;
-    font-size: var(--category-first-text-size);
+    font-size: var(--heading-first-text-size);
 }
-section.category .heading > h1{
+section .heading > h1{
     color: #14183E;
+    text-align: center;
+    text-transform: capitalize;
 
     font-family: "Volkhov", sans-serif;
     font-weight: bold;
-    font-size: var(--category-heading-text-size);
+    font-size: var(--heading-text-size);
 }
-section.category .wrapper{
+section .wrapper{
+    position: relative;
+    
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
     width: 100%;
     margin-top: 30px;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    background-color: red;
-
 }
-section.category .wrapper .card{
+.category .wrapper .card{
+    position: relative;
+    
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: white;
-    border-radius: 10px;
+
     width: 267px;
     height: 314px;
-    padding: 0 50px 45px 50px;
-    overflow: hidden;
+    padding: 0 45px 45px 45px;
+    margin: 2%;
+
+    border-radius: 30px;
+    background-color: white;
+}
+.category .wrapper .card#shadow{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 25px 40px -3px;
 }
 .card .icon{
     display: flex;
     justify-content: center;
     align-items: center;
+    
     width: 100%;
     height: 50%;
 }
 .card .text-box h3{
-    color: #1E1D4C;
     white-space: nowrap;
+    text-align: center;
+    text-transform: capitalize;
+    color: #1E1D4C;
 
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     font-size: var(--category-card-heading-text-size);
 }
-.card .text-box p{
+.category .card .text-box p{
     margin-top: 15px;
-    color: #5E6282;
+
     font-weight: normal;
     font-size: var(--category-card-main-text-size);
+
+    word-wrap: break-word;
+    color: #5E6282;
+}
+
+/* Decor items */
+.decor-item{
+    position: absolute;
+}
+.category #decor-1{
+    left: -40px;
+    bottom: -40px;
+    z-index: -1;
+}
+.category #decor-2{
+    right: 0;
+    top: 0;
 }
 
 
+/* Top Selling Category */
+
+.top .card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+
+
+    width: 314px;
+    height: 457px;
+
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 25px;
+
+    transition: transform 1s ease 0.1s;
+}
+.top .card:hover{
+    transform: translateY(-20px);
+}
+.top .card .photo{
+    height: 70%;
+    overflow: hidden;
+
+    border-radius: inherit;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.top .card .photo img{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    background-position: center center;
+
+    transition: transform 0.5s ease 1s;
+}
+.top .card .photo:hover img{
+    transform: scale(1.5);
+}
+.top .card .text-box{
+    padding: 27px 20px 0 20px;
+    color: #5E6282;
+}
+.top .card .line-box{
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+
+    font-size: var(--top-card-main-text-size);
+}
+.top .card .trip-len{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin-top: 35px;
+    
+    font-size: var(--top-card-additional-text-size);
+}
+.top .card .trip-len > img{
+    width: 25px;
+    height: 25px;
+    
+    margin-right:14px;
+    background-position: center center;
+    background-size: contain;
+}
+
+
+#top-decor1{
+    right: -70px;
+    bottom:60px;
+    z-index: -1;
+}
 footer{
-    margin-bottom: 140%;
+    height: 200px;
 }
-
-
