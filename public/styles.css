@@ -6,6 +6,9 @@
 }
 :root{
     --black: #212832;
+    --additional-text-color: #5E6282;
+    --header-text-color: #14183E;
+    --heading-font-family: "Volkhov", sans-serif;
     --margin-between-sections: 7%;
     
     --heading-first-text-size: 18pt;
@@ -235,7 +238,7 @@ main{
 
     font-weight: normal;
     font-size: var(--landing-addiional-text-size);
-    color: #5E6282;
+    color: var(--additional-text-color);
 }
 .landing .wrapper .buttons{
     display: flex;
@@ -395,14 +398,14 @@ section .heading{
     align-items: center;
 }
 section .heading > span{
-    color: #5E6282;
+    color: var(--additional-text-color);
     text-transform: capitalize;
 
     font-weight: 600;
     font-size: var(--heading-first-text-size);
 }
 section .heading > h1{
-    color: #14183E;
+    color: var(--header-text-color);
     text-align: center;
     text-transform: capitalize;
 
@@ -464,7 +467,7 @@ section .wrapper{
     font-size: var(--category-card-main-text-size);
 
     word-wrap: break-word;
-    color: #5E6282;
+    color: var(--additional-text-color);
 }
 
 /* Decor items */
@@ -525,7 +528,7 @@ section .wrapper{
 }
 .top .card .text-box{
     padding: 27px 20px 0 20px;
-    color: #5E6282;
+    color: var(--additional-text-color);
 }
 .top .card .line-box{
     display: flex;
@@ -558,6 +561,55 @@ section .wrapper{
     bottom:60px;
     z-index: -1;
 }
+
+
+
+/* Booking Section */
+
+.booking{
+    display: flex;
+}
+.booking .wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.booking .wrapper h5{
+    color: var(--additional-text-color);
+    font-weight: bolder;
+}
+.booking .wrapper h1{
+    font-family: var(--heading-font-family);
+    font-size: var(--heading-text-size);
+
+    text-transform: capitalize;
+
+}
+.booking .photo{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.booking .wrapper ul{
+    list-style: none;
+}
+.booking .wrapper .card{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px;
+}
+.booking .wrapper .card .icon{
+    width: 48px;
+    margin-right: 25px;
+}
+
+
+
+
+
+
+
+
 footer{
     height: 200px;
 }
