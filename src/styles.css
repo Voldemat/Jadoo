@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--black);
+    color: inherit;
 }
 :root{
     --black: #212832;
@@ -109,7 +109,7 @@ nav .icon{
     /* Background */
     background-position: center center;
     background-size: cover;
-    background-image: url("/assets/menu-icon.png");
+    background-image: url("assets/menu-icon.png");
     z-index: 101;
     
     /* Effects */
@@ -221,11 +221,11 @@ main{
     position: absolute;
     width: 150%;
     height: 100%;
-    bottom: 2vw;
+    bottom: 1.5vw;
     right: -40%;
 
     /* Background */
-    background-image: url("/assets/main-text-select.png");
+    background-image: url("http://localhost:3000/assets/main-text-select.png");
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: contain;
@@ -323,8 +323,9 @@ main{
 }
 
 
-/* Landing breakpoint: PC -> Tablet */
+/* Breakpoint: PC -> Tablet */
 @media screen and (max-width: 1550px){
+    /*Landing Section*/
     .landing{
         flex-direction: column;
         padding-right: 10vw;
@@ -337,6 +338,11 @@ main{
         --landing-main-text-size: 8vw;
         --landing-first-text-size: 1.2em;
     }
+
+    .booking .photo{
+        height: 800px;
+    }
+    
 }
 
 /* Breakpoint: Tablet -> Phone */
@@ -381,6 +387,23 @@ main{
             display: none;
         }
     /* End category */
+
+    /* Booking Section */
+    .booking{
+        flex-direction: column;
+    }
+    .booking .photo{
+        display: none;
+    }
+
+    /* Testimonials Section */
+    .testimonials{
+        flex-direction: column;
+    }
+    
+    
+    
+    /* End section */
 }
 
 
@@ -397,7 +420,7 @@ section .heading{
     justify-content: center;
     align-items: center;
 }
-section .heading > span{
+section .heading > h5{
     color: var(--additional-text-color);
     text-transform: capitalize;
 
@@ -442,7 +465,7 @@ section .wrapper{
 .category .wrapper .card#shadow{
     box-shadow: rgba(0, 0, 0, 0.05) 0px 25px 40px -3px;
 }
-.card .icon{
+.category .card .icon{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -450,7 +473,7 @@ section .wrapper{
     width: 100%;
     height: 50%;
 }
-.card .text-box h3{
+.category .card .text-box h3{
     white-space: nowrap;
     text-align: center;
     text-transform: capitalize;
@@ -567,6 +590,7 @@ section .wrapper{
 /* Booking Section */
 
 .booking{
+    position: relative;
     display: flex;
 }
 .booking .wrapper{
@@ -582,34 +606,287 @@ section .wrapper{
     font-size: var(--heading-text-size);
 
     text-transform: capitalize;
+    color: var(--header-text-color);
 
 }
-.booking .photo{
-    display: flex;
-    justify-content: flex-end;
-}
+
 
 .booking .wrapper ul{
     list-style: none;
 }
 .booking .wrapper .card{
+    width: 70%;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     margin: 20px;
+}
+.booking .wrapper .card .text-box{
+    color: var(--additional-text-color);
+}
+.booking .wrapper .card .text-box p{
+    font-weight: 400;
 }
 .booking .wrapper .card .icon{
     width: 48px;
+    margin-top: 3px;
     margin-right: 25px;
+}
+.booking .photo{
+    width: 100%;
+    max-width: 900px;
+}
+.booking .photo img{
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+}
+
+
+@media screen and (max-width: 1430px){
+    .booking{
+        flex-direction: column;
+    }
+    .booking .photo{
+        align-self: flex-end;
+    }
 }
 
 
 
+.testimonials{
+    position: relative;
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* background-color: red; */
+}
+.testimonials .heading{
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.testimonials .heading h5{
+    text-transform: uppercase;
+    font-size: 12pt;
+    margin-bottom: 10px;
+}
+.testimonials .heading h1{
+    text-align: left;
+}
+.testimonials .heading .points{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width:87px;
+    height:12px;
+    margin-top: 30%;
+}
+.testimonials .heading .points span{
+    width:10px;
+    height:10px;
+    border-radius: 50%;
+    background-color: #E5E5E5;
+}
+.testimonials .heading .points span:first-child{
+    background-color: #39425D;
+}
+
+.testimonials .reviews-box{
+    min-width:50%;
+}
+.testimonials .wrapper{
+    position: relative;
+}
+.testimonials .wrapper .icon{
+    width:100%;
+}
+.testimonials .wrapper .icon img{
+    width:70px;
+    height:70px;
+    border-radius: 50%;
+    position: absolute;
+    left:-30px;
+    top:-30px;
+    object-fit: cover;
+}
+.testimonials .wrapper .card{
+    position: absolute;
+    left:200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width:504px;
+    height: 245px;
+
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #fff;
+
+    padding:28px 34px;
+}
+.testimonials .wrapper #back-card{
+    top:77px;
+    left:248px;
+    z-index: -2;
+    justify-content: flex-end;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+}
+
+.testimonials .wrapper .card *{
+    color:#5E6282;
+}
+.testimonials .wrapper .card .author p{
+    font-size:0.6em;
+}
+.testimonials .wrapper .card .author h5{
+    font-weight: bolder;
+}
+
+.testimonials .buttons{
+    width:14px;
+    height:75px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: absolute;
+    right:0;
+    top:50%;
+}
 
 
+.brands{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:150px;
+}
 
-
-
+.subscribe{
+    display: flex;
+    flex-direction: column;
+    padding:155px 70px;
+    position: relative;
+    background-image: url("/assets/subscribe-bg.png");
+    min-height:417px;
+    border-radius:129px 20px 20px 20px ;
+}
+.subscribe .text-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.subscribe .text-box form{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    width:50%;
+}
+.subscribe .text-box form input[type="email"]{
+    width:100%;
+    border-radius: 10px;
+    border:none;
+    color:#39425D;
+}
+.subscribe .text-box form input[type="email"]::placeholder{
+    color:#39425D;
+}
+.subscribe .text-box form input[type="submit"]{
+    min-width:180px;
+    height:68px;
+    margin-left:25px;
+    border-radius: 10px;
+    background:linear-gradient(#FF946D, #FF7D68);
+    border:none;
+    color:white;
+    font-family: "Open Sans", sans-serif;
+    font-weight: lighter;
+    letter-spacing: 1px;
+}
+.subscribe h3{
+    text-align: center;
+    font-size: 2em;
+    color:#5E6282;
+}
+.subscribe .icon{
+    position: absolute;
+    right: -20px;
+    top: -20px;
+}
 footer{
-    height: 200px;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+footer .wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+footer .wrapper .logo h1{
+    color:#181E4B;
+    font-size: 3em;
+    font-weight: lighter;
+}
+footer .wrapper .logo p{
+    font-size: 0.8em;
+    color:#5E6282;
+}
+footer .wrapper nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+footer .wrapper nav a{
+    width:20%;
+    color:#5E6282;
+}
+footer .wrapper nav .main-link{
+    font-size:1.2em;
+    font-weight: bolder;
+    color:#080809;
+    margin-bottom:30px;
+}
+
+footer .wrapper .last-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+footer .wrapper .last-block h3{
+    color:#5E6282;
+    font-weight: lighter;
+}
+footer .wrapper .last-block .social-media{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+footer .wrapper .last-block .app-links{
+    width:105%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+footer .wrapper .last-block .google-play{
+    width:107px;
+    height:35px;
+    background: url("/assets/google-play.png");
+}
+footer .wrapper .last-block .app-store{
+    width:100px;
+    height:35px;
+    background: url("/assets/apple-store.png");
+}
+footer .rights{
+    width:100%;
+    text-align: center;
+    color:#5E6282;
+    font-size: 0.8em;
+    margin-bottom:80px;
+    margin-top:85px;
 }

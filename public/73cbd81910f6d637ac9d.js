@@ -1,0 +1,1 @@
+var body=document.querySelector("body"),menuButton=document.querySelector("#menu-button");menuButton.addEventListener("click",(function(e){menuButton.classList.toggle("active"),body.classList.toggle("menu-active")})),document.querySelectorAll("a").forEach((function(e){e.addEventListener("click",(function(e){e.preventDefault()}))}));
