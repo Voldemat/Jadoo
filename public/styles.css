@@ -1,0 +1,892 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: inherit;
+}
+:root{
+    --black: #212832;
+    --additional-text-color: #5E6282;
+    --header-text-color: #14183E;
+    --heading-font-family: "Volkhov", sans-serif;
+    --margin-between-sections: 7%;
+    
+    --heading-first-text-size: 18pt;
+    --heading-text-size: 3em;
+
+    --landing-main-text-size: 70pt;
+    --landing-addiional-text-size: 1em;
+    --landing-first-text-size: 1.3em;
+
+
+    --category-card-heading-text-size: 1.2em;
+    --category-card-main-text-size: 1em;
+
+    --top-card-main-text-size: 15pt;
+    --top-card-additional-text-size: 13pt;
+}
+body{
+    position: relative;
+    min-height: 100vh;
+    min-width: 100vw;
+    
+    padding: 8vh 10vw 0 10vw;
+    overflow-x: hidden;
+}
+section{
+    font-family: 'Poppins', sans-serif;
+
+    margin-top: var(--margin-between-sections);
+}
+body.menu-active{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+body .decore{
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+/* HEADER */
+header{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* NAVBAR */
+nav{
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+}
+/* wrapper for header links */
+nav .wrapper{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 100;
+}
+
+/* Style links in header */
+nav a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2.8%;
+
+    text-decoration: none;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Create border to Sign Up button */
+nav .sign-up{
+    /* Position */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Content */
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--black);
+}
+
+/* Menu Icon for Mobiles */
+nav .icon{
+    /* Position */
+    display: none;
+    width: 45px;
+    height: 45px;
+    margin-left: 5%;
+
+    /* Background */
+    background-position: center center;
+    background-size: cover;
+    background-image: url("assets/menu-icon.png");
+    z-index: 101;
+    
+    /* Effects */
+    transition: transform 0.5s ease;
+}
+.icon.active{
+    transform: rotateZ(-90deg);
+}
+
+/* Language Select */
+.lang{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.lang select{
+    min-width:50px;
+
+    background-color: transparent;
+    font-size: 1em;
+    border: none;
+    outline: none;
+}
+
+/* Header breakpoint PC -> Tablet, Phone */
+@media screen and (max-width: 1050px){
+     /* Display menu icon */
+    nav .icon{
+        display: block;
+    }
+    /* Hide wrapper and remade styles */
+    nav .wrapper{
+        display: none;
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100% !;
+        height: 100%;
+
+        padding: 25vh 15vw;
+        flex-direction: column;
+        font-size: calc(1em + 3vw);
+
+        
+        background-color: rgba(255,255,255,0.9);
+    }
+    /* Make all links be flex */
+    nav .wrapper a{
+        display: flex;
+        margin-bottom: 5%;
+    }
+
+    /* Change language select box width */
+    .lang{
+        width: 100%;
+    }
+    /* If menu icon is active display header wrapper */
+    .icon.active ~ .wrapper{
+        display: block;
+    }
+    
+}
+
+
+
+/* Main Section */
+main{
+    width: 100%;
+    height: 100%;
+    flex: 1 1 auto;
+}
+
+
+/* Landing Section */
+.landing{
+    position: relative;
+    display: flex;
+
+    font-family: 'Poppins', sans-serif;
+}
+.landing .wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    height: 75%;
+}
+.landing .wrapper .first-text{
+    max-width: 80%;
+
+    font-size: var(--landing-first-text-size);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #DF6951;
+}
+/* Main text and decor underline(.wrapper .main-text span) */
+.landing .wrapper .main-text, .wrapper .main-text span{
+    position: relative;
+
+    font-size: var(--landing-main-text-size);
+    font-family: 'Volkhov', serif;
+    white-space: nowrap;
+    color: #181E4B;
+}
+/* Decor line */
+.landing .wrapper .main-text span::after{
+    /* Position */
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 100%;
+    bottom: 1.5vw;
+    right: -40%;
+
+    /* Background */
+    background-image: url("http://localhost:3000/assets/main-text-select.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: -1;
+
+}
+.landing .wrapper .additional-text{
+    width: 75%;
+    margin-top: 5%;
+
+    font-weight: normal;
+    font-size: var(--landing-addiional-text-size);
+    color: var(--additional-text-color);
+}
+.landing .wrapper .buttons{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    width: 100%;
+    margin-top: 5%;
+}
+.landing .wrapper .buttons *{
+    margin-bottom: 5%;
+}
+.buttons .find-more{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 170px;
+    height: 60px;
+    margin-right: 5vw;
+    
+    text-decoration: none;
+    color: #fff;
+    
+    border-radius: 10px;
+    background-color: #F1A501;
+}
+.buttons .play-demo{
+    display: flex;
+    justify-content: flex;
+    align-items: center;
+}
+.buttons .play-demo .play-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    width: 50px;
+    height: 50px;
+    
+    border-radius: 50%;
+
+}
+.buttons .play-demo button{
+    margin-left: 21px;
+    
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    font-size: 1em;
+    
+    color: #686D77;
+    background: none;
+    border: none;
+}
+/* Landing Photo */
+.landing .photo{
+    position: relative;
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    margin-top: 5%;
+}
+
+
+
+/* Decor Planes */
+.landing .plane{
+    position: absolute;
+}
+#plane1{
+    top: 12vh;
+    left: 0;
+}
+#plane2{
+    top: 0;
+    right: 9vw;
+
+    z-index: -1;
+}
+
+
+/* Breakpoint: PC -> Tablet */
+@media screen and (max-width: 1550px){
+    /*Landing Section*/
+    .landing{
+        flex-direction: column;
+        padding-right: 10vw;
+    }
+    .landing .photo{
+        justify-content: center;
+        align-items: center;
+    }
+    :root{
+        --landing-main-text-size: 8vw;
+        --landing-first-text-size: 1.2em;
+    }
+
+    .booking .photo{
+        height: 800px;
+    }
+    
+}
+
+/* Breakpoint: Tablet -> Phone */
+@media screen and (max-width: 750px){
+    /* Start Landing */
+    .landing{
+        padding-right: 0;
+    }
+    .landing .photo{
+        display: none;
+    }
+    .landing .wrapper .main-text{
+        white-space: initial;
+    }
+    .buttons .play-demo .play-icon{
+        width: 40px;
+        height: 40px;
+    }
+    .buttons .find-more{
+        width: 150px;
+        height: 40px;
+    }
+    .wrapper .main-text span::after{
+        bottom: 3vw;
+    }
+
+    .landing .wrapper .additional-text{
+        width: 100%;
+    }
+    :root{
+        --landing-main-text-size: 11vw;
+        --landing-addiional-text-size: 0.9em;
+        --landing-first-text-size: 1em;
+    }
+    /* End Landing */
+
+    /* Start Category */
+        #shadow{
+            box-shadow: none !important;
+        }
+        .category .decor-item{
+            display: none;
+        }
+    /* End category */
+
+    /* Booking Section */
+    .booking{
+        flex-direction: column;
+    }
+    .booking .photo{
+        display: none;
+    }
+
+    /* Testimonials Section */
+    .testimonials{
+        flex-direction: column;
+    }
+    
+    
+    
+    /* End section */
+}
+
+
+/* Category Section */
+.category{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+}
+section .heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+section .heading > h5{
+    color: var(--additional-text-color);
+    text-transform: capitalize;
+
+    font-weight: 600;
+    font-size: var(--heading-first-text-size);
+}
+section .heading > h1{
+    color: var(--header-text-color);
+    text-align: center;
+    text-transform: capitalize;
+
+    font-family: "Volkhov", sans-serif;
+    font-weight: bold;
+    font-size: var(--heading-text-size);
+}
+section .wrapper{
+    position: relative;
+    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    width: 100%;
+    margin-top: 30px;
+}
+.category .wrapper .card{
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 267px;
+    height: 314px;
+    padding: 0 45px 45px 45px;
+    margin: 2%;
+
+    border-radius: 30px;
+    background-color: white;
+}
+.category .wrapper .card#shadow{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 25px 40px -3px;
+}
+.category .card .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 50%;
+}
+.category .card .text-box h3{
+    white-space: nowrap;
+    text-align: center;
+    text-transform: capitalize;
+    color: #1E1D4C;
+
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: var(--category-card-heading-text-size);
+}
+.category .card .text-box p{
+    margin-top: 15px;
+
+    font-weight: normal;
+    font-size: var(--category-card-main-text-size);
+
+    word-wrap: break-word;
+    color: var(--additional-text-color);
+}
+
+/* Decor items */
+.decor-item{
+    position: absolute;
+}
+.category #decor-1{
+    left: -40px;
+    bottom: -40px;
+    z-index: -1;
+}
+.category #decor-2{
+    right: 0;
+    top: 0;
+}
+
+
+/* Top Selling Category */
+
+.top .card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+
+
+    width: 314px;
+    height: 457px;
+
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 25px;
+
+    transition: transform 1s ease 0.1s;
+}
+.top .card:hover{
+    transform: translateY(-20px);
+}
+.top .card .photo{
+    height: 70%;
+    overflow: hidden;
+
+    border-radius: inherit;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.top .card .photo img{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    background-position: center center;
+
+    transition: transform 0.5s ease 1s;
+}
+.top .card .photo:hover img{
+    transform: scale(1.5);
+}
+.top .card .text-box{
+    padding: 27px 20px 0 20px;
+    color: var(--additional-text-color);
+}
+.top .card .line-box{
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+
+    font-size: var(--top-card-main-text-size);
+}
+.top .card .trip-len{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin-top: 35px;
+    
+    font-size: var(--top-card-additional-text-size);
+}
+.top .card .trip-len > img{
+    width: 25px;
+    height: 25px;
+    
+    margin-right:14px;
+    background-position: center center;
+    background-size: contain;
+}
+
+
+#top-decor1{
+    right: -70px;
+    bottom:60px;
+    z-index: -1;
+}
+
+
+
+/* Booking Section */
+
+.booking{
+    position: relative;
+    display: flex;
+}
+.booking .wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.booking .wrapper h5{
+    color: var(--additional-text-color);
+    font-weight: bolder;
+}
+.booking .wrapper h1{
+    font-family: var(--heading-font-family);
+    font-size: var(--heading-text-size);
+
+    text-transform: capitalize;
+    color: var(--header-text-color);
+
+}
+
+
+.booking .wrapper ul{
+    list-style: none;
+}
+.booking .wrapper .card{
+    width: 70%;
+    display: flex;
+    align-items: flex-start;
+    margin: 20px;
+}
+.booking .wrapper .card .text-box{
+    color: var(--additional-text-color);
+}
+.booking .wrapper .card .text-box p{
+    font-weight: 400;
+}
+.booking .wrapper .card .icon{
+    width: 48px;
+    margin-top: 3px;
+    margin-right: 25px;
+}
+.booking .photo{
+    width: 100%;
+    max-width: 900px;
+}
+.booking .photo img{
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+}
+
+
+@media screen and (max-width: 1430px){
+    .booking{
+        flex-direction: column;
+    }
+    .booking .photo{
+        align-self: flex-end;
+    }
+}
+
+
+
+.testimonials{
+    position: relative;
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* background-color: red; */
+}
+.testimonials .heading{
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.testimonials .heading h5{
+    text-transform: uppercase;
+    font-size: 12pt;
+    margin-bottom: 10px;
+}
+.testimonials .heading h1{
+    text-align: left;
+}
+.testimonials .heading .points{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width:87px;
+    height:12px;
+    margin-top: 30%;
+}
+.testimonials .heading .points span{
+    width:10px;
+    height:10px;
+    border-radius: 50%;
+    background-color: #E5E5E5;
+}
+.testimonials .heading .points span:first-child{
+    background-color: #39425D;
+}
+
+.testimonials .reviews-box{
+    min-width:50%;
+}
+.testimonials .wrapper{
+    position: relative;
+}
+.testimonials .wrapper .icon{
+    width:100%;
+}
+.testimonials .wrapper .icon img{
+    width:70px;
+    height:70px;
+    border-radius: 50%;
+    position: absolute;
+    left:-30px;
+    top:-30px;
+    object-fit: cover;
+}
+.testimonials .wrapper .card{
+    position: absolute;
+    left:200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width:504px;
+    height: 245px;
+
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #fff;
+
+    padding:28px 34px;
+}
+.testimonials .wrapper #back-card{
+    top:77px;
+    left:248px;
+    z-index: -2;
+    justify-content: flex-end;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+}
+
+.testimonials .wrapper .card *{
+    color:#5E6282;
+}
+.testimonials .wrapper .card .author p{
+    font-size:0.6em;
+}
+.testimonials .wrapper .card .author h5{
+    font-weight: bolder;
+}
+
+.testimonials .buttons{
+    width:14px;
+    height:75px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: absolute;
+    right:0;
+    top:50%;
+}
+
+
+.brands{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:150px;
+}
+
+.subscribe{
+    display: flex;
+    flex-direction: column;
+    padding:155px 70px;
+    position: relative;
+    background-image: url("/assets/subscribe-bg.png");
+    min-height:417px;
+    border-radius:129px 20px 20px 20px ;
+}
+.subscribe .text-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.subscribe .text-box form{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    width:50%;
+}
+.subscribe .text-box form input[type="email"]{
+    width:100%;
+    border-radius: 10px;
+    border:none;
+    color:#39425D;
+}
+.subscribe .text-box form input[type="email"]::placeholder{
+    color:#39425D;
+}
+.subscribe .text-box form input[type="submit"]{
+    min-width:180px;
+    height:68px;
+    margin-left:25px;
+    border-radius: 10px;
+    background:linear-gradient(#FF946D, #FF7D68);
+    border:none;
+    color:white;
+    font-family: "Open Sans", sans-serif;
+    font-weight: lighter;
+    letter-spacing: 1px;
+}
+.subscribe h3{
+    text-align: center;
+    font-size: 2em;
+    color:#5E6282;
+}
+.subscribe .icon{
+    position: absolute;
+    right: -20px;
+    top: -20px;
+}
+footer{
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+footer .wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+footer .wrapper .logo h1{
+    color:#181E4B;
+    font-size: 3em;
+    font-weight: lighter;
+}
+footer .wrapper .logo p{
+    font-size: 0.8em;
+    color:#5E6282;
+}
+footer .wrapper nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+footer .wrapper nav a{
+    width:20%;
+    color:#5E6282;
+}
+footer .wrapper nav .main-link{
+    font-size:1.2em;
+    font-weight: bolder;
+    color:#080809;
+    margin-bottom:30px;
+}
+
+footer .wrapper .last-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+footer .wrapper .last-block h3{
+    color:#5E6282;
+    font-weight: lighter;
+}
+footer .wrapper .last-block .social-media{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+footer .wrapper .last-block .app-links{
+    width:105%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+footer .wrapper .last-block .google-play{
+    width:107px;
+    height:35px;
+    background: url("/assets/google-play.png");
+}
+footer .wrapper .last-block .app-store{
+    width:100px;
+    height:35px;
+    background: url("/assets/apple-store.png");
+}
+footer .rights{
+    width:100%;
+    text-align: center;
+    color:#5E6282;
+    font-size: 0.8em;
+    margin-bottom:80px;
+    margin-top:85px;
+}
