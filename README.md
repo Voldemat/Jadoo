@@ -1,7 +1,7 @@
 # Learning layoting Step 1
 ---
 
-I`m worked for week on this project.
+I`m worked for 2 weeks on this project.
 
 
 Mistakes I`m understand during this project:
