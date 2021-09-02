@@ -225,7 +225,7 @@ main{
     right: -40%;
 
     /* Background */
-    background-image: url("http://localhost:3000/assets/main-text-select.png");
+    background-image: url("/assets/main-text-select.png");
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: contain;
