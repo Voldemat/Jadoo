@@ -10,3 +10,5 @@ Mistakes I`m understand during this project:
 * Don`t use so much flexbox elements, it``s to hard to make them responsive.
 * Separate css into more files
 ### Project ended at 09.02.2021
+
+# You can visit it at https://musing-clarke-fbf95d.netlify.app/
