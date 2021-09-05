@@ -11,4 +11,6 @@ Mistakes I`m understand during this project:
 * Separate css into more files
 ### Project ended at 09.02.2021
 
-# You can visit it at https://musing-clarke-fbf95d.netlify.app/
+### I`m deploy it on netlify
+
+https://musing-clarke-fbf95d.netlify.app/
