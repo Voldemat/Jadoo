@@ -177,6 +177,9 @@ nav .icon{
     .category{
         margin-top: 200px;
     }
+    .subscribe{
+        background: none !important;
+    }
 }
 
 
