@@ -33,11 +33,7 @@ body{
     padding: 8vh 10vw 0 10vw;
     overflow-x: hidden;
 }
-@media screen and (max-width: 1000px){
-    footer .wrapper nav{
-        display:none;
-    }
-}
+
 section{
     font-family: 'Poppins', sans-serif;
 
@@ -175,7 +171,12 @@ nav .icon{
     .icon.active ~ .wrapper{
         display: block;
     }
-    
+    #top-decor1{
+        display: none;
+    }
+    .category{
+        margin-top: 200px;
+    }
 }
 
 
