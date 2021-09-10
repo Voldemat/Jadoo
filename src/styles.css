@@ -804,6 +804,7 @@ section .wrapper{
     padding:155px 70px;
     position: relative;
     background-image: url("/assets/subscribe-bg.png");
+    background-repeat: no-repeat;
     min-height:417px;
     border-radius:129px 20px 20px 20px ;
 }
